@@ -7,11 +7,13 @@ public class Player : MonoBehaviour
     public float speed;
     public float camspeed;
     public float maxspeed;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        GameManager.gm.player = transform;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
