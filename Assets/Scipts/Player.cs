@@ -29,6 +29,17 @@ public class Player : MonoBehaviour
         Camera.main.transform.parent.Rotate(Vector3.up * Input.GetAxis("Mouse X") * camspeed);
         Camera.main.transform.parent.position = transform.position;
 
+        if (Input.GetKeyDown("1"))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        if (Input.GetKeyDown("2"))
+        { 
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     private void Movement(float movespeed)
