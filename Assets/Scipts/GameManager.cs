@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         if (boostTimer > 0)
         {
             boostTimer -= Time.deltaTime;
-            player.GetComponent<Player>().maxspeed = 30;
+            player.GetComponent<Player>().maxspeed = 90;
         }
         else
         {

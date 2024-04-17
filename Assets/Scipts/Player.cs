@@ -14,32 +14,27 @@ public class Player : MonoBehaviour
     {
         GameManager.gm.player = transform;
         rb = GetComponent<Rigidbody>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
         }
 
         Movement(speed);
-
-        Camera.main.transform.parent.Rotate(Vector3.up * Input.GetAxis("Mouse X") * camspeed);
-        Camera.main.transform.parent.position = transform.position;
-
-        if (Input.GetKeyDown("1"))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-
-        if (Input.GetKeyDown("2"))
-        { 
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
     }
 
     private void Movement(float movespeed)
