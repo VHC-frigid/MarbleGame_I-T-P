@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PowerUpKat : MonoBehaviour
 {
-
-    public Camera mainCamera;
     
     // Start is called before the first frame update
     void Start()
@@ -23,11 +21,6 @@ public class PowerUpKat : MonoBehaviour
     {
         Debug.Log("power");
         GameManager.gm.player.localScale += new Vector3(0.3f,0.3f,0.3f);
-        if (mainCamera != null)
-        {
-            float scaleFactor = GameManager.gm.player.localScale.x; // Assuming uniform scaling
-            mainCamera.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
-        }
         Destroy(gameObject);
     }
 
